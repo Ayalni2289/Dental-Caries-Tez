@@ -1,6 +1,7 @@
 import {  useState } from "react";
 import Header from "../components/header/Header";
 import Buttons from "../components/patient/Buttons";
+import AI from "../components/patient/AI";
 
 const HomePage = () => {
   const [filtered] = useState([]);
@@ -14,8 +15,9 @@ const HomePage = () => {
           {/*Buttons*/}
           <div className="products flex flex-col justify-center overflow-auto items-center">
             <Buttons
-              filtered={filtered}
+            filtered={filtered}
             />
+            <AI />
           </div>
         </div>
       )

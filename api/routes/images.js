@@ -13,4 +13,9 @@ router.post("/upload", async (req, res) => {
   res.send({message: "Image uploaded Successfully "});
   });
 
+  router.get("/get", async (req, res) => {
+    const image = await Image.find();
+    res.send(image);
+  });
+
   module.exports = router;

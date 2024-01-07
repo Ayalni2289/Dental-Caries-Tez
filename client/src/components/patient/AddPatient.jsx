@@ -58,7 +58,6 @@ const AddPatient = ({
         form.resetFields();
     } 
    } catch (error) {
-      message.error("Hasta Eklenemedi");
       console.log(error);
     }
   };
