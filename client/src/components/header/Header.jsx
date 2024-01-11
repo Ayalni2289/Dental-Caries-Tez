@@ -1,16 +1,13 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   HomeOutlined,
-  ShoppingCartOutlined,
   UserOutlined,
   ProfileOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Badge, message } from "antd";
-import { useSelector } from "react-redux";
+import { message } from "antd";
 
 const Header = ({ setSearch }) => {
-  const cart = useSelector((state) => state.cart);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -80,19 +77,6 @@ const Header = ({ setSearch }) => {
           </div>
           {/*Menu END*/}
         </div>
-        <Badge
-          count={cart.cartItems.length}
-          offset={[0, 0]}
-          className="md:hidden flex "
-        >
-          <Link
-            to={"/"}
-            className={`menu-link ${pathname === "/" && "active"}`}
-          >
-            <ShoppingCartOutlined className="py-1 md:text-2xl text-xl" />
-            <span className="md:text-xs text-[10px]">Sepet</span>
-          </Link>
-        </Badge>
       </header>
     </div>
   );
