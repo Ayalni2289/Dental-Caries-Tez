@@ -7,14 +7,14 @@ const Buttons = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
-  const api_url = "https://cff3-188-132-140-102.ngrok-free.app"; // Your API URL here
+  //const api_url = "https://cff3-188-132-140-102.ngrok-free.app"; Your API URL here
 
   const handleFileUpload = async (file) => {
     const formData = new FormData();
     formData.append('image', file);
 
     try {
-      const response = await fetch(api_url, {
+      const response = await fetch(process.env.Api_Url_Ai, {
         method: 'POST',
         body: formData,
       });
@@ -61,7 +61,7 @@ const Buttons = () => {
       >
         <p className="text-white font-mono text-sm md:text-xl">Hasta Ekle</p>
       </div>
-      <Upload {...props} accept=".png, .jpg, .jpeg" type="file">
+      <Upload {...props} accept=".png, .jpg, .jpeg" type="file" >
         <div
           className="product-item border hover:shadow-lg rounded-md
        cursor-pointer transition-all select-none
