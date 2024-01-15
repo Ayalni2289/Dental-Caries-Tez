@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Add from "./AddPatient";
-import { Button, Table, Upload, message, Tag, Typography  } from "antd";
+import { Button, Table, Upload, message, Tag, } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 
 
@@ -79,7 +79,7 @@ const Buttons = () => {
       { key: '2', field: 'Confidence', value: result.confidence },
     ]
   : [];
-  
+
   return (
     <div className="products-wrapper flex flex-row gap-10 w-full items-center justify-center">
       <div
