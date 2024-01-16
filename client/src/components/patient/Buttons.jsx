@@ -9,7 +9,7 @@ const Buttons = () => {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   
-  const api_url = "https://464a-188-132-140-102.ngrok-free.app"; //Your API URL here
+  const api_url = "https://677a-188-132-140-102.ngrok-free.app"; //Your API URL here
 
   const handleFileUpload = async (file) => {
     const formData = new FormData();
