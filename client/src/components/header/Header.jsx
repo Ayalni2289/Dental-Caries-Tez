@@ -23,9 +23,7 @@ const Header = ({ setSearch }) => {
     <div className="border-b mb-6">
       <header className="py-4 px-6 flex justify-between items-center gap-10 ">
         {/*Search*/}
-        <div className="">
-          Diş fotoğrafı
-          </div>
+          <img title="Diş" className="absolute ml-10 mt-3 flex items-center justify-center"width={100} height={100} alt="Diş Görseli" src="https://plus.unsplash.com/premium_photo-1674179075492-db864287fa12?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/> 
         {/*logo*/}
         <div
           className="logo flex-1 flex justify-center">
