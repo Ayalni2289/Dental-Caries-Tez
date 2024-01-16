@@ -5,9 +5,28 @@ import { useState } from "react";
 
 const Register = () => {
 
-
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [tcNum, setTcNum]=useState('');
+
+  const handleTcChange = (e) =>{
+    const value  = e.target.value;
+
+    // Sadece Sayıları Kabul Et
+    const acceptNum = value.replace(/[^0-9]/g, '');
+
+    //11 Hane Kontrolü
+    if(acceptNum.length <= 11){
+      setTcNum(acceptNum);
+    }
+  };
+  const isButtonDisabled = () => {
+    // 11 hane kontrolü
+    return tcNum.length !== 11;
+    
+  };
+  
+
   const onFinish = async (values) => {
     setLoading(true);
     try {
@@ -32,7 +51,7 @@ const Register = () => {
       console.log(error);
     }
   };
-
+  
   return (
     <div className="h-screen">
       <div className="flex justify-between h-full">
@@ -46,11 +65,11 @@ const Register = () => {
               rules={[
                 {
                   required: true,
-                  message: "Lütfen Tc Kimlik No giriniz!",
+                  message: "Lütfen Tc Kimlik No giriniz! Yalnızca Sayı !",
                 },
               ]}
             >
-              <Input type="text" maxLength={11}/>
+              <Input value={tcNum} onChange={handleTcChange} type="text" maxLength={11}/>
             </Form.Item>
             <Form.Item
               label="İsim"
@@ -118,6 +137,7 @@ const Register = () => {
                 className="w-full"
                 size="large"
                 loading={loading}
+                disabled={isButtonDisabled()}
               >
                 Kaydol
               </Button>
