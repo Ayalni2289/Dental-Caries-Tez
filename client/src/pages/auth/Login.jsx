@@ -7,8 +7,24 @@ const Login = () => {
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [tcNum, setTcNum]=useState('');
 
+  const handleTcChange = (e) =>{
+    const value  = e.target.value;
 
+    // Sadece Sayıları Kabul Et
+    const acceptNum = value.replace(/[^0-9]/g, '');
+
+    //11 Hane Kontrolü
+    if(acceptNum.length <= 11){
+      setTcNum(acceptNum);
+    }
+  };
+  const isButtonDisabled = () => {
+    // 11 hane kontrolü
+    return tcNum.length !== 11;
+    
+  };
   const onFinish= async (values) => {
     console.log(values);
     setLoading(true);
@@ -67,7 +83,7 @@ const Login = () => {
                 },
               ]}
             >
-              <Input />
+              <Input value={tcNum} onChange={handleTcChange} type="text" maxLength={11} />
             </Form.Item>
             <Form.Item
               label="Şifre"
@@ -94,6 +110,7 @@ const Login = () => {
                 className="w-full"
                 size="large"
                 loading={loading}
+                disabled={isButtonDisabled()}
               >
                 Giriş Yap
               </Button>
